@@ -1,19 +1,18 @@
 import dao.DBConnection;
+
+import java.sql.SQLException;
 import java.util.*;
 import java.sql.Connection;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        /*
-        Connection conn = DBConnection.getConnection();
-
-        if (conn == null) {
-            System.out.println("Failed to connect to database. Exiting.");
-            return;
+        //Connect to database
+        try (var connection =  DBConnection.getConnection()){
+            System.out.println("Connected to the PostgreSQL database.");
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
         }
-        */
-
 
         System.out.println("🎵 Welcome to the Local Music Library 🎵");
         System.out.println("Type 'help' to view available commands.");
