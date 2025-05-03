@@ -1,5 +1,6 @@
 import dao.DBConnection;
-import  dao.SongDAO;
+import dao.SongDAO;
+import dao.MusicImporter;
 
 import java.sql.SQLException;
 import java.util.*;
@@ -18,6 +19,7 @@ public class Main {
             System.out.println("🎵 Welcome to the Local Music Library 🎵");
             System.out.println("Type 'help' to view available commands.");
 
+            // loop to get user input
             boolean running = true;
             while (running) {
                 System.out.print("\n> ");
@@ -35,7 +37,7 @@ public class Main {
                             System.out.println("Usage: import [folder_path]");
                         } else {
                              String path = parts[1];
-                             //MusicImporter.importFromDirectory(path, songDAO);
+                             MusicImporter.importFromDirectory(path, songDAO);
                         }
                         break;
 
