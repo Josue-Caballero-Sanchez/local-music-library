@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         //Connect to database
-        try (var connection =  DBConnection.getConnection()){
+        try (var connection = DB.connect()){
             System.out.println("Connected to the PostgreSQL database.");
         } catch (SQLException e) {
             System.err.println(e.getMessage());
